@@ -1,13 +1,8 @@
 <div align="center">
 
-  <img src="https://on.ahmda.ws/6de47022e721/c" alt="gatsby-remark-better-embed-video" />
+  <h1><code>gatsby-remark-embed-video-lite</code></h1>
 
-  <h1><code>gatsby-remark-better-embed-video</code></h1>
-
-[![This open source project is supported by VSCode.pro](https://img.shields.io/badge/Supported%20by-VSCode%20Power%20User%20Course%20%E2%86%92-gray.svg?colorA=444444&colorB=4F44D6)](https://VSCode.pro)
-[![npm](https://img.shields.io/npm/dt/gatsby-remark-better-embed-video.svg?style=flat)](https://www.npmjs.com/package/gatsby-remark-better-embed-video)
-[![emoji-log](https://cdn.rawgit.com/ahmadawais/stuff/ca97874/emoji-log/non-flat-round.svg)](https://github.com/ahmadawais/Emoji-Log/)
-[![GitHub followers](https://img.shields.io/github/followers/ahmadawais.svg?style=social&label=Follow)](https://github.com/ahmadawais?tab=followers)  [![Tweet for help](https://img.shields.io/twitter/follow/mrahmadawais.svg?style=social&label=Tweet%20@MrAhmadAwais)](https://twitter.com/mrahmadawais/)
+[![npm](https://img.shields.io/npm/dt/gatsby-remark-embed-video-lite.svg?style=flat)](https://www.npmjs.com/package/gatsby-remark-embed-video-lite)
 
 </div>
 
@@ -15,18 +10,8 @@
 <table width='100%' align="center">
     <tr>
         <td align='left' width='100%' colspan='2'>
-            <strong><code>gatsby-remark-better-embed-video</code></strong><br />
-            📺 Embed a Youtube Video in your Markdown with more options.
-        </td>
-    </tr>
-    <tr>
-        <td>
-            A FOSS (Free & Open Source Software) project. Maintained by <a href='https://github.com/ahmadawais'>@AhmadAwais</a>.
-        </td>
-        <td align='center'>
-            <a href='https://twitter.com/MrAhmadAwais/'>
-                <img src='https://img.shields.io/badge/→-AHMAD%20AWAIS-gray.svg?colorA=4D2AFF&colorB=2D2B57&style=flat' width='100' />
-            </a>
+            <strong><code>gatsby-remark-embed-video-lite</code></strong><br />
+            📺 Embed a Youtube Video in your Markdown using high-performance web components
         </td>
     </tr>
 </table>
@@ -34,7 +19,7 @@
 
 <br>
 
-Embed a Youtube Video in your Markdown with more options.
+Embed a Youtube Video in your Markdown, using high-performance web components
 
 Inspired by [gatsby-remark-embed-video](https://github.com/ahmadawais/gatsby-remark-better-embed-video)
 
@@ -43,11 +28,7 @@ Inspired by [gatsby-remark-embed-video](https://github.com/ahmadawais/gatsby-rem
 1. Install plugin to your site:
 
 ```sh
-npm i gatsby-remark-better-embed-video
-
-# OR #
-
-yarn add gatsby-remark-better-embed-video
+npm i gatsby-remark-embed-video-lite
 ```
 
 2. Add following to your `gatsby-config.js`:
@@ -59,31 +40,17 @@ yarn add gatsby-remark-better-embed-video
         options: {
           plugins: [
           {
-            resolve: "gatsby-remark-better-embed-video",
-            options: {
-              width: 800,
-              ratio: 1.77, // Optional: Defaults to 16/9 = 1.77.
-              height: 400, // Optional: Overrides optional.ratio.
-              related: false, // Optional: Will remove related videos from the end of an embedded YouTube video.
-              noIframeBorder: true, // Optional: Disable insertion of <style> border: 0.
-              showInfo: false // Optional: Hides video title and player actions.
-            }
+            resolve: "gatsby-remark-embed-video-lite",
           }
           ]
         }
       },
 ```
 
-Note: if you also rely on `gatsby-remark-responsive-iframe`, you have to define the embed-youtube plugin first:
+Uses the following components under the hood:
 
-``` js
-plugins: [
-  "gatsby-remark-better-embed-video",
-  "gatsby-remark-responsive-iframe"
-]
-```
-
-Note: you can style the videoIframe using `.embedVideoIframe`
+- https://www.npmjs.com/package/@justinribeiro/lite-youtube
+- https://www.npmjs.com/package/@slightlyoff/lite-vimeo
 
 1. Restart gatsby.
 
@@ -92,23 +59,13 @@ Note: you can style the videoIframe using `.embedVideoIframe`
 ```markdown
 # Look at this Video:
 
-`video: https://www.youtube.com/embed/2Xc9gXyf2G4`
 `youtube: https://www.youtube.com/watch?v=2Xc9gXyf2G4`
 `youtube: 2Xc9gXyf2G4`
 
 `vimeo: https://vimeo.com/5299404`
 `vimeo: 5299404`
-
-`videoPress: https://videopress.com/v/kUJmAcSf`
-`videoPress: kUJmAcSf`
-
-`twitch: https://player.twitch.tv/?channel=dakotaz`
-`twitch: https://player.twitch.tv/?autoplay=false&video=v273436948`
-`twitch: 273436948`
-`twitchLive: dakotaz`
-
 ```
 
 ## License
 
-MIT — [Ahmad Awais](https://twitter.com/MrAhmadAwais/)
+MIT
