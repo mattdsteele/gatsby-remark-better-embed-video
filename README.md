@@ -19,7 +19,7 @@
 
 <br>
 
-Embed a Youtube Video in your Markdown, using high-performance web components
+Embed a Youtube or Vimeo video in your Markdown, using high-performance web components
 
 Inspired by [gatsby-remark-embed-video](https://github.com/ahmadawais/gatsby-remark-better-embed-video)
 
@@ -52,7 +52,7 @@ Uses the following components under the hood:
 - https://www.npmjs.com/package/@justinribeiro/lite-youtube
 - https://www.npmjs.com/package/@slightlyoff/lite-vimeo
 
-1. Restart gatsby.
+3. Restart gatsby.
 
 ## Usage
 

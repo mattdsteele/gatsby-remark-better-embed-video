@@ -1,6 +1,17 @@
-/// <reference path="EmbedVideo.d.ts" />
-
 import { URL } from 'url';
+export interface EmbedVideoOptions {
+  width: number;
+  ratio: number;
+  related?: boolean;
+  height?: number;
+  noIframeBorder?: boolean;
+  showInfo?: boolean;
+}
+
+interface VideoId {
+  id: string;
+  service: string;
+}
 
 const getVideoId = require('get-video-id');
 

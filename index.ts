@@ -1,7 +1,5 @@
-import { EmbedVideo, getKnownPlatforms } from './EmbedVideo';
-import { promisify } from 'util';
-import { copyFile } from 'fs';
-import { resolve } from 'path';
+import { copyFile } from 'fs-extra';
+import { EmbedVideo, EmbedVideoOptions, getKnownPlatforms } from './EmbedVideo';
 
 const visit = require(`unist-util-visit`);
 
@@ -24,21 +22,14 @@ const addVideoIframe = ({ markdownAST }: any, options: EmbedVideoOptions) => {
       node.value = embedVideo.getHTML();
     }
   });
-  const copy = promisify(copyFile);
-  // return Promise.all([
-  //   copy(
-  //     resolve(
-  //       'node_modules/gatsby-remark-embed-video-lite/node_modules/@justinribeiro/lite-youtube/lite-youtube.js'
-  //     ),
-  //     'public/js/lite-youtube.js'
-  //   ),
-  //   copy(
-  //     resolve(
-  //       'node_modules/gatsby-remark-embed-video-lite/node_modules/@slightlyoff/lite-vimeo/lite-vimeo.js'
-  //     ),
-  //     'public/js/lite-vimeo.js'
-  //   ),
-  // ]);
+  const ly = require.resolve('@justinribeiro/lite-youtube/lite-youtube.js');
+  const lv = require.resolve('@slightlyoff/lite-vimeo/lite-vimeo.js');
+  const DEPLOY_DIR = 'public/static';
+
+  return Promise.all([
+    copyFile(ly, `${DEPLOY_DIR}/lite-youtube.js`),
+    copyFile(lv, `${DEPLOY_DIR}/lite-vimeo.js`),
+  ]);
 };
 
 export = addVideoIframe;
