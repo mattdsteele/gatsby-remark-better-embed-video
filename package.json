@@ -49,7 +49,7 @@
     "build": "tsc --noImplicitUseStrict",
     "prepublishOnly": "cross-env NODE_ENV=production npm run build",
     "watch": "npm run build -- -w",
-    "log": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "log": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 -u",
     "release": "release-it",
     "release-minor": "release-it minor",
     "release-major": "release-it major",
