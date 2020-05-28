@@ -1,9 +1,6 @@
 import React from 'react';
-export const onRenderBody = ({
-  setHeadComponents,
-  setHtmlAttributes,
-  setBodyAttributes,
-}: any) => {
+import type { RenderBodyArgs } from 'gatsby';
+export const onRenderBody = ({ setHeadComponents }: RenderBodyArgs) => {
   const youtube = (
     <script key="yt" type="module" src="/static/lite-youtube.js" />
   );

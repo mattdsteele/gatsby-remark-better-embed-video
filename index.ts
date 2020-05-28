@@ -1,9 +1,20 @@
 import { copyFile } from 'fs-extra';
 import { EmbedVideo, EmbedVideoOptions, getKnownPlatforms } from './EmbedVideo';
 
-const visit = require(`unist-util-visit`);
+import visit from 'unist-util-visit';
 
-const addVideoIframe = ({ markdownAST }: any, options: EmbedVideoOptions) => {
+// Copy custom element files to static folder
+const copyStaticFiles = () => {
+  const ly = require.resolve('@justinribeiro/lite-youtube/lite-youtube.js');
+  const lv = require.resolve('@slightlyoff/lite-vimeo/lite-vimeo.js');
+  const DEPLOY_DIR = 'public/static';
+  return Promise.all([
+    copyFile(ly, `${DEPLOY_DIR}/lite-youtube.js`),
+    copyFile(lv, `${DEPLOY_DIR}/lite-vimeo.js`),
+  ]);
+};
+
+const addLiteElements = ({ markdownAST }: any, options: EmbedVideoOptions) => {
   visit(markdownAST, `inlineCode`, (node: { type: string; value: string }) => {
     const { value } = node;
     let knownPlatforms = getKnownPlatforms();
@@ -22,14 +33,8 @@ const addVideoIframe = ({ markdownAST }: any, options: EmbedVideoOptions) => {
       node.value = embedVideo.getHTML();
     }
   });
-  const ly = require.resolve('@justinribeiro/lite-youtube/lite-youtube.js');
-  const lv = require.resolve('@slightlyoff/lite-vimeo/lite-vimeo.js');
-  const DEPLOY_DIR = 'public/static';
 
-  return Promise.all([
-    copyFile(ly, `${DEPLOY_DIR}/lite-youtube.js`),
-    copyFile(lv, `${DEPLOY_DIR}/lite-vimeo.js`),
-  ]);
+  return copyStaticFiles();
 };
 
-export = addVideoIframe;
+export = addLiteElements;

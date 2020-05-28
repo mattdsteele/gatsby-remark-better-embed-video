@@ -25,6 +25,7 @@
     "@types/react": "^16.9.35",
     "conventional-changelog-cli": "^2.0.34",
     "cross-env": "^7",
+    "gatsby": "^2.22.11",
     "react": "^16.13.1",
     "typescript": "^3"
   },
