@@ -1,6 +1,5 @@
 {
   "name": "gatsby-remark-embed-video-lite",
-  "version": "0.1.2",
   "description": "Embed Videos (Youtube, Vimeo) in Gatsby via Markdown, using lite web components",
   "main": "index.js",
   "author": "Matt Steele <matt@steele.blue>",
